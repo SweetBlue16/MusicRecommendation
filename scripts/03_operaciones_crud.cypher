@@ -18,7 +18,7 @@ MATCH (c:Cancion)
 RETURN c.titulo, c.duracionSegundos 
 ORDER BY c.duracionSegundos DESC LIMIT 3;
 
-MATCH p = shortestPath((u1:Usuario {nombre: 'Laura'})-[*]-(u2:Usuario {nombre: 'Carlos'})) 
+MATCH p = shortestPath((u1:Usuario {nombre: 'Laura'})-[*..5]-(u2:Usuario {nombre: 'Sofía'})) 
 RETURN p;
 
 MATCH (u:Usuario)-[r:ESCUCHO]->(c:Cancion) 
