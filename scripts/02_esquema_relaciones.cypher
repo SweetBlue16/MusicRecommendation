@@ -1,0 +1,43 @@
+MATCH (c:Cancion {idCancion: 'C1'}), (g:Genero {idGenero: 'G4'}) CREATE (c)-[:PERTENECE]->(g);
+MATCH (c:Cancion {idCancion: 'C2'}), (g:Genero {idGenero: 'G2'}) CREATE (c)-[:PERTENECE]->(g);
+MATCH (c:Cancion {idCancion: 'C3'}), (g:Genero {idGenero: 'G2'}) CREATE (c)-[:PERTENECE]->(g);
+MATCH (c:Cancion {idCancion: 'C4'}), (g:Genero {idGenero: 'G3'}) CREATE (c)-[:PERTENECE]->(g);
+MATCH (c:Cancion {idCancion: 'C5'}), (g:Genero {idGenero: 'G2'}) CREATE (c)-[:PERTENECE]->(g);
+MATCH (c:Cancion {idCancion: 'C6'}), (g:Genero {idGenero: 'G2'}) CREATE (c)-[:PERTENECE]->(g);
+MATCH (c:Cancion {idCancion: 'C7'}), (g:Genero {idGenero: 'G1'}) CREATE (c)-[:PERTENECE]->(g);
+MATCH (c:Cancion {idCancion: 'C8'}), (g:Genero {idGenero: 'G4'}) CREATE (c)-[:PERTENECE]->(g);
+MATCH (c:Cancion {idCancion: 'C9'}), (g:Genero {idGenero: 'G3'}) CREATE (c)-[:PERTENECE]->(g);
+MATCH (c:Cancion {idCancion: 'C10'}), (g:Genero {idGenero: 'G1'}) CREATE (c)-[:PERTENECE]->(g);
+
+MATCH (a:Artista {idArtista: 'A1'}), (c:Cancion {idCancion: 'C1'}) CREATE (a)-[:INTERPRETA {rolPrincipal: true}]->(c);
+MATCH (a:Artista {idArtista: 'A2'}), (c:Cancion {idCancion: 'C2'}) CREATE (a)-[:INTERPRETA {rolPrincipal: true}]->(c);
+MATCH (a:Artista {idArtista: 'A2'}), (c:Cancion {idCancion: 'C3'}) CREATE (a)-[:INTERPRETA {rolPrincipal: true}]->(c);
+MATCH (a:Artista {idArtista: 'A3'}), (c:Cancion {idCancion: 'C4'}) CREATE (a)-[:INTERPRETA {rolPrincipal: true}]->(c);
+MATCH (a:Artista {idArtista: 'A4'}), (c:Cancion {idCancion: 'C5'}) CREATE (a)-[:INTERPRETA {rolPrincipal: true}]->(c);
+MATCH (a:Artista {idArtista: 'A4'}), (c:Cancion {idCancion: 'C6'}) CREATE (a)-[:INTERPRETA {rolPrincipal: true}]->(c);
+MATCH (a:Artista {idArtista: 'A5'}), (c:Cancion {idCancion: 'C7'}) CREATE (a)-[:INTERPRETA {rolPrincipal: true}]->(c);
+MATCH (a:Artista {idArtista: 'A1'}), (c:Cancion {idCancion: 'C8'}) CREATE (a)-[:INTERPRETA {rolPrincipal: true}]->(c);
+MATCH (a:Artista {idArtista: 'A3'}), (c:Cancion {idCancion: 'C9'}) CREATE (a)-[:INTERPRETA {rolPrincipal: true}]->(c);
+MATCH (a:Artista {idArtista: 'A5'}), (c:Cancion {idCancion: 'C10'}) CREATE (a)-[:INTERPRETA {rolPrincipal: true}]->(c);
+
+MATCH (u:Usuario {idUsuario: 'U1'}), (a:Artista {idArtista: 'A1'}) CREATE (u)-[:SIGUE {fechaSeguimiento: '2026-01-15'}]->(a);
+MATCH (u:Usuario {idUsuario: 'U1'}), (a:Artista {idArtista: 'A2'}) CREATE (u)-[:SIGUE {fechaSeguimiento: '2026-03-22'}]->(a);
+MATCH (u:Usuario {idUsuario: 'U2'}), (a:Artista {idArtista: 'A3'}) CREATE (u)-[:SIGUE {fechaSeguimiento: '2025-11-10'}]->(a);
+MATCH (u:Usuario {idUsuario: 'U3'}), (a:Artista {idArtista: 'A4'}) CREATE (u)-[:SIGUE {fechaSeguimiento: '2026-05-05'}]->(a);
+MATCH (u:Usuario {idUsuario: 'U4'}), (a:Artista {idArtista: 'A5'}) CREATE (u)-[:SIGUE {fechaSeguimiento: '2026-02-18'}]->(a);
+MATCH (u:Usuario {idUsuario: 'U5'}), (a:Artista {idArtista: 'A1'}) CREATE (u)-[:SIGUE {fechaSeguimiento: '2026-08-30'}]->(a);
+MATCH (u:Usuario {idUsuario: 'U5'}), (a:Artista {idArtista: 'A4'}) CREATE (u)-[:SIGUE {fechaSeguimiento: '2026-09-12'}]->(a);
+MATCH (u:Usuario {idUsuario: 'U6'}), (a:Artista {idArtista: 'A2'}) CREATE (u)-[:SIGUE {fechaSeguimiento: '2026-04-01'}]->(a);
+
+MATCH (u:Usuario {idUsuario: 'U1'}), (c:Cancion {idCancion: 'C1'}) CREATE (u)-[:ESCUCHO {fecha: '2026-11-10', vecesReproducida: 5}]->(c);
+MATCH (u:Usuario {idUsuario: 'U1'}), (c:Cancion {idCancion: 'C8'}) CREATE (u)-[:ESCUCHO {fecha: '2026-11-12', vecesReproducida: 2}]->(c);
+MATCH (u:Usuario {idUsuario: 'U2'}), (c:Cancion {idCancion: 'C4'}) CREATE (u)-[:ESCUCHO {fecha: '2026-10-25', vecesReproducida: 10}]->(c);
+MATCH (u:Usuario {idUsuario: 'U2'}), (c:Cancion {idCancion: 'C9'}) CREATE (u)-[:ESCUCHO {fecha: '2026-11-01', vecesReproducida: 4}]->(c);
+MATCH (u:Usuario {idUsuario: 'U3'}), (c:Cancion {idCancion: 'C5'}) CREATE (u)-[:ESCUCHO {fecha: '2026-11-14', vecesReproducida: 15}]->(c);
+MATCH (u:Usuario {idUsuario: 'U3'}), (c:Cancion {idCancion: 'C6'}) CREATE (u)-[:ESCUCHO {fecha: '2026-11-14', vecesReproducida: 8}]->(c);
+MATCH (u:Usuario {idUsuario: 'U4'}), (c:Cancion {idCancion: 'C7'}) CREATE (u)-[:ESCUCHO {fecha: '2026-09-20', vecesReproducida: 20}]->(c);
+MATCH (u:Usuario {idUsuario: 'U4'}), (c:Cancion {idCancion: 'C10'}) CREATE (u)-[:ESCUCHO {fecha: '2026-09-22', vecesReproducida: 12}]->(c);
+MATCH (u:Usuario {idUsuario: 'U5'}), (c:Cancion {idCancion: 'C1'}) CREATE (u)-[:ESCUCHO {fecha: '2026-11-05', vecesReproducida: 1}]->(c);
+MATCH (u:Usuario {idUsuario: 'U5'}), (c:Cancion {idCancion: 'C5'}) CREATE (u)-[:ESCUCHO {fecha: '2026-11-06', vecesReproducida: 3}]->(c);
+MATCH (u:Usuario {idUsuario: 'U6'}), (c:Cancion {idCancion: 'C2'}) CREATE (u)-[:ESCUCHO {fecha: '2026-10-30', vecesReproducida: 7}]->(c);
+MATCH (u:Usuario {idUsuario: 'U6'}), (c:Cancion {idCancion: 'C3'}) CREATE (u)-[:ESCUCHO {fecha: '2026-11-02', vecesReproducida: 9}]->(c);
